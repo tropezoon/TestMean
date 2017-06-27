@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="continental">
+  <%- include("imports/cabecera.ejs") %>
+  <body ng-controller="LoginCtrl as vm">
+    <%- include("imports/navbar.ejs") %>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<div class="panel panel-success">
+					<div class="panel-title"><h3><%= title %></h3></div>
+					<div class="panel-body">
+						
+						 <form class="form-horizontal">
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="email">User:</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" ng-model="vm.inputUser" id="user" placeholder="Enter user">
+							</div>
+						  </div>
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="pwd">Password:</label>
+							<div class="col-sm-10">
+							  <input type="password" class="form-control" ng-model="vm.inputPass" id="pwd" placeholder="Enter password">
+							</div>
+						  </div>
+						  <div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+							  <button type="submit" class="btn btn-default" ng-disabled="vm.isEmpty(vm.inputUser) || vm.isEmpty(vm.inputPass)" ng-click="vm.submitLogin()">Submit</button>
+							  <!--<button type="submit" class="btn btn-default" ng-disabled="vm.isEmpty(vm.inputUser) || vm.isEmpty(vm.inputPass)" ng-click="vm.busquedaSinBind()">Search sin bind</button>-->
+							  <button type="submit" class="btn btn-default" ng-disabled="vm.isEmpty(vm.inputUser) || vm.isEmpty(vm.inputPass)" ng-click="vm.loginConLdap()">Login con Ldap</button>
+							</div>
+						  </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div class="row">
+				<hr/>
+				<div class="col-md-6">
+					<h4>Info usuario</h4>
+					<pre>{{ vm.userData | json}}</pre>
+				</div>
+				<div class="col-md-6">
+					<h4>Grupos a los que pertenece</h4>
+					<pre>{{ vm.groupsData | json }}</pre>
+				</div>
+				<hr/>
+			</div>
+		</div>
+	</div>
+	
+	<%- include("imports/scripts-angular.ejs") %>
+	<script src="/javascripts/login-controller.js"></script>
+  </body>
+</html>

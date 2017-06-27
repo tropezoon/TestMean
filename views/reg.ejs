@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="continental">
+  <%- include("imports/cabecera.ejs") %>
+  <body ng-controller="RegCtrl as vm">
+    <%- include("imports/navbar.ejs") %>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<div class="panel panel-success">
+					<div class="panel-title"><h3><%= title %></h3></div>
+					<div class="panel-body">
+						
+						 <form class="form-horizontal">
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="email">Key:</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" ng-model="vm.inputKey" id="key" placeholder="Enter key">
+							</div>
+						  </div>
+						  <div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+							  <button type="submit" class="btn btn-default" ng-disabled="vm.isEmpty(vm.inputKey)" ng-click="vm.submitKey()">Search Key</button>
+							</div>
+						  </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<hr/><pre>{{ vm.model | json}}</pre><hr/>
+	</div>
+	
+	<%- include("imports/scripts-angular.ejs") %>
+	<script src="/javascripts/reg-controller.js"></script>
+  </body>
+</html>

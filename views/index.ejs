@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="continental">
+  <%- include("imports/cabecera.ejs") %>
+  <body ng-controller="MainCtrl as vm">
+	<%- include("imports/navbar.ejs") %>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+	
+	<input type="text" name="campo1" ng-model="vm.campo1" /> {{ vm.campo1 }}
+	
+	<input type="button" ng-click="vm.llamadaTest()" value="Test llamada" />
+	
+	<hr/>
+	<pre>{{ vm.model | json }}</pre>
+	<hr/>
+	
+	<%- include("imports/scripts-angular.ejs") %>
+	<script src="/javascripts/main-controller.js"></script>
+  </body>
+</html>

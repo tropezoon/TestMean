@@ -1,0 +1,8 @@
+https://auth0.com/blog/cookies-vs-tokens-definitive-guide/
+https://github.com/ivanfrain/jdokan
+https://github.com/patriksimek/node-mssql
+http://expressjs.com/es/advanced/best-practice-security.html
+http://www.telerik.com/kendo-angular-ui/getting-started/
+http://adrianmejia.com/blog/2014/10/01/creating-a-restful-api-tutorial-with-nodejs-and-mongodb/
+https://stackoverflow.com/questions/7042340/error-cant-set-headers-after-they-are-sent-to-the-client
+https://hashnode.com/post/10-things-you-shouldnt-do-while-running-nodejs-in-production-cisab2fyu0s9oth5341faywcw
