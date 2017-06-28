@@ -3,9 +3,24 @@
   <%- include("imports/cabecera.ejs") %>
   <body ng-controller="PermisosCtrl as vm">
     <%- include("imports/navbar.ejs") %>
-	
-	
-	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<input type="button" ng-click="vm.getAllTokens()" value="Get Tokens" />
+			</div>
+			<div class="col-md-6">
+				Token: 
+				<input type="text" name="refreshToken" ng-model="vm.delToken" /><br/>
+				<input type="button" ng-click="vm.deleteToken()" value="Kill Token"
+			</div>
+		</div>
+		
+	</div>
+		
+		<hr/>
+		<pre>{{ vm.model | json }}</pre>
+		<hr/>
+		
 	<%- include("imports/scripts-angular.ejs") %>
 	<script src="/javascripts/perm-controller.js"></script>
   </body>

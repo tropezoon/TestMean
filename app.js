@@ -11,11 +11,7 @@ var passport = require('./config/passportConfig');
 var mysql = require('./config/mysql');
 var MSSQLStore = require('connect-mssql')(expressSession);
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-var login = require('./routes/login');
-var reged = require('./routes/reg');
-var permi = require('./routes/permisos');
+var routes = require('./routes/routes');
 
 var app = express();
 
@@ -50,11 +46,7 @@ app.use(expressSession(sessionOpts));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/'			, index);
-app.use('/users'	, users);
-app.use('/login'	, login);
-app.use('/reged'	, reged);
-app.use('/permisos'	, permi);
+app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

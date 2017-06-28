@@ -4,15 +4,8 @@ var utils = {};
 //   IN . query: El comando que se va a ejecutar, formato String
 //	 IN . func: Las acciones que se van a ejecutar si la consulta va bien; se definen en la
 //				llamada a esta función. 
-var executeQuery = function(query, func){
+/*var executeQuery = function(query, func){
 	var sql = require("mssql/msnodesqlv8");
-	/*var config = {
-	  user: 'P176-11-13\\nombre.apellido',
-	  password: 'Wpshdwt6',
-      server: 'P176-11-13\\SQLEXPRESS',
-      database: 'testContinental',
-	  port: '1433'
-  }*/
 	var config = {
 		driver: 'msnodesqlv8',
 		connectionString: 'Driver={SQL Server Native Client 11.0};Server={P176-11-13\\SQLEXPRESS};Database={testContinental};Trusted_Connection={yes};'
@@ -33,7 +26,7 @@ var executeQuery = function(query, func){
             sql.close();
         });
     });
-}
+}*/
 
 // Función que accede al Registry de Windows para obtener el nombre del usuario 
 //	 que ha abierto sesión en la máquina
@@ -78,7 +71,7 @@ var requireLogin = function(req, res, next){
 	}
 }
 
-utils.executeQuery = executeQuery;
+//utils.executeQuery = executeQuery;
 utils.getUsernameRegistry = getUsernameRegistry;
 utils.requireLogin = requireLogin
 

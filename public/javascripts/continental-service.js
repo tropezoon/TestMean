@@ -38,6 +38,15 @@
 		factory.searchRegedit = function(data){
 			return $http.post('/searchRegedit', data);
 		}
+		
+		//PERMISOS
+		factory.getAllTokens = function(){
+			return $http.get('/token/getAll');
+		}
+		
+		factory.delToken = function(data){
+			return $http.post('/token/reject', {'refreshToken': data});
+		}
 	
 		return factory;
 	}

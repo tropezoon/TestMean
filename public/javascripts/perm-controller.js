@@ -10,7 +10,9 @@
 		var vm = this;
 		vm.model = {};
 		
-		vm.gridOptions = {
+		vm.delToken = null;
+		
+		/*vm.gridOptions = {
 			enableRowSelection: false,
 			enableRowHeaderSelection: false,
 			multiSelect: false,
@@ -20,7 +22,26 @@
 			columnDefs: [
 				{name: "Elemento", field: "Elem"}
 			]
-		};
+		};*/
+		
+		vm.getAllTokens = function(){
+			ContinentalService.getAllTokens()
+				.then(function(response){
+						vm.model = response.data;
+					}, function(response){
+						console.log(response);
+						vm.model = response;
+				});
+		}
+		vm.deleteToken = function(){
+			ContinentalService.delToken(vm.delToken)
+				.then(function(response){
+						vm.model = "Token borrado correctamente";
+					}, function(response){
+						console.log(response);
+						vm.model = "Error borrado token: "+ response;
+				});
+		}
 	}
 }());
 
