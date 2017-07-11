@@ -67,6 +67,7 @@ var requireLogin = function(req, res, next){
 	if (!req.session.user){
 		res.redirect('/login');
 	} else {
+		//req.session.touch();
 		next();
 	}
 }

@@ -4,9 +4,9 @@
 	angular.module('continental')
 		.controller('LoginCtrl', LoginCtrl);
 		
-	LoginCtrl.$inject = ['$scope', 'ContinentalService'];
+	LoginCtrl.$inject = ['$scope', 'ContinentalService', '$auth', '$window'];
 	
-	function LoginCtrl($scope, ContinentalService){
+	function LoginCtrl($scope, ContinentalService, $auth, $window){
 		var vm = this;
 		vm.model = {};
 		
@@ -52,6 +52,34 @@
 					}, function(err){
 						//console.log(err);
 						vm.userData = err;
+						vm.groupsData = {};
+				});
+		}
+		
+		//ESTA FUNCIÓN NO PASA POR FACTORY
+		vm.loginLdapToken = function(){
+			var data = {'username': vm.inputUser, 'password': vm.inputPass};
+			$auth.login({
+				username: data.username,
+				password: data.password
+			})
+			.then(function(data){
+				// Si se ha logueado correctamente, lo tratamos aquí.
+				// Podemos también redirigirle a una ruta
+				//$window.location.href = "/test_entro";
+				vm.userData = data.data;
+				$window.localStorage.setItem('testMean_superTok', vm.userData.token);
+				//console.log($window.localStorage);
+			})
+			.catch(function(response){
+				console.log(response);
+			});
+		}
+		
+		vm.logout = function(){
+			$auth.logout()
+				.then(function(){
+					//$window.location.href = "/";
 				});
 		}
 		

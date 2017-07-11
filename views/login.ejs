@@ -29,6 +29,8 @@
 							  <button type="submit" class="btn btn-default" ng-disabled="vm.isEmpty(vm.inputUser) || vm.isEmpty(vm.inputPass)" ng-click="vm.submitLogin()">Submit</button>
 							  <!--<button type="submit" class="btn btn-default" ng-disabled="vm.isEmpty(vm.inputUser) || vm.isEmpty(vm.inputPass)" ng-click="vm.busquedaSinBind()">Search sin bind</button>-->
 							  <button type="submit" class="btn btn-default" ng-disabled="vm.isEmpty(vm.inputUser) || vm.isEmpty(vm.inputPass)" ng-click="vm.loginConLdap()">Login con Ldap</button>
+							  <button type="submit" class="btn btn-default" ng-disabled="vm.isEmpty(vm.inputUser) || vm.isEmpty(vm.inputPass)" ng-click="vm.loginLdapToken()">Login con Ldap + token</button>
+							  <button type="submit" class="btn btn-default" ng-click="vm.logout()">Logout</button>
 							</div>
 						  </div>
 						</form>

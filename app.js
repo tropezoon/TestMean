@@ -11,6 +11,10 @@ var passport = require('./config/passportConfig');
 var mysql = require('./config/mysql');
 var MSSQLStore = require('connect-mssql')(expressSession);
 
+var _const = require('./config/_const');
+var cronTasks = require('./config/cron');	//Cron tasks execution
+cronTasks.runAll();
+
 var routes = require('./routes/routes');
 
 var app = express();
@@ -29,13 +33,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
+app.use('/bow', express.static(__dirname + '/bower_components')); // redirect to bower folder
 app.use(cookieParser());
 app.use(helmet());
 
 var sessionOpts = {
-	name: 'lasesion',
-	secret: 'esunsecreto', 
-	resave: true, 	//That "forces session to be saved even when unmodified..."
+	name: _const["expressSessionName"],
+	secret: _const['expressSessionSecret'], 
+	resave: false, 	//That "forces session to be saved even when unmodified..."
 	saveUninitialized: false,
 	rolling: true,	//This "forces a cookie set on every response" and "resets the expiration date." 
 	store: new MSSQLStore(mysql.serverConfig),

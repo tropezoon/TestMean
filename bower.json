@@ -1,0 +1,6 @@
+{
+  "name": "testmean",
+  "dependencies": {
+    "satellizer": "^0.15.5"
+  }
+}

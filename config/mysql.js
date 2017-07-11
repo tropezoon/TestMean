@@ -1,8 +1,10 @@
 var express = require('express');
 var sql = require("mssql/msnodesqlv8");
+var _const = require('./_const');
+
 var config = {
 	driver: 'msnodesqlv8',
-	connectionString: 'Driver={SQL Server Native Client 11.0};Server={P176-11-13\\SQLEXPRESS};Database={testContinental};Trusted_Connection={yes};'
+	connectionString: _const['mysqlDBConnectionString']
 }
 
 // Función que conecta a la BD y ejecuta el comando que se le pase como 1r param
